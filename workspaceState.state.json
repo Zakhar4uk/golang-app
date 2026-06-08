@@ -1,0 +1,217 @@
+{
+  "workspaceFoldersFilePaths": [
+    "./"
+  ],
+  "symbols": [],
+  "activeFileDiagnostics": [],
+  "activeTextEditor": {
+    "selections": [
+      {
+        "anchor": {
+          "line": 10,
+          "character": 10
+        },
+        "active": {
+          "line": 10,
+          "character": 10
+        },
+        "isReversed": true
+      }
+    ],
+    "documentFilePath": "./internal/features/users/service/create_user.go",
+    "visibleRanges": [
+      {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 22,
+          "character": 0
+        }
+      }
+    ],
+    "languageId": "go"
+  },
+  "debugConsoleOutput": "",
+  "terminalBuffer": "\r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % go get github.com/go-playground/validator/v10go get github.com/go-playground/validator/v10\r\r\ngo: downloading github.com/go-playground/validator/v10 v10.30.3\r\ngo: downloading github.com/gabriel-vasile/mimetype v1.4.13\r\ngo: downloading golang.org/x/crypto v0.52.0\r\ngo: downloading golang.org/x/text v0.37.0\r\ngo: downloading golang.org/x/sys v0.45.0\r\ngo: added github.com/gabriel-vasile/mimetype v1.4.13\r\ngo: added github.com/go-playground/locales v0.14.1\r\ngo: added github.com/go-playground/universal-translator v0.18.1\r\ngo: added github.com/go-playground/validator/v10 v10.30.3\r\ngo: added github.com/leodido/go-urn v1.4.0\r\ngo: added golang.org/x/crypto v0.52.0\r\ngo: added golang.org/x/sys v0.45.0\r\ngo: added golang.org/x/text v0.37.0\r\n%                                                          \r \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % \r\rmmzakharchuk@MacBook-Air-MMZakharchuk golang-app % ",
+  "terminalLastCommand": {
+    "commandLine": "go get github.com/go-playground/validator/v10",
+    "cwd": "/Users/mmzakharchuk/golang-app",
+    "exitCode": 0,
+    "output": "go: downloading github.com/go-playground/validator/v10 v10.30.3\ngo: downloading github.com/gabriel-vasile/mimetype v1.4.13\ngo: downloading golang.org/x/crypto v0.52.0\ngo: downloading golang.org/x/text v0.37.0\ngo: downloading golang.org/x/sys v0.45.0\ngo: added github.com/gabriel-vasile/mimetype v1.4.13\ngo: added github.com/go-playground/locales v0.14.1\ngo: added github.com/go-playground/universal-translator v0.18.1\ngo: added github.com/go-playground/validator/v10 v10.30.3\ngo: added github.com/leodido/go-urn v1.4.0\ngo: added golang.org/x/crypto v0.52.0\ngo: added golang.org/x/sys v0.45.0\ngo: added golang.org/x/text v0.37.0\n"
+  },
+  "terminalSelection": "",
+  "terminalShellType": "zsh",
+  "repoContexts": [
+    {
+      "_repo": {
+        "rootUri": {
+          "$mid": 1,
+          "path": "/Users/mmzakharchuk/golang-app",
+          "scheme": "file"
+        },
+        "inputBox": {},
+        "kind": "repository",
+        "state": {},
+        "ui": {},
+        "isUsingVirtualFileSystem": false
+      },
+      "rootUri": {
+        "$mid": 1,
+        "path": "/Users/mmzakharchuk/golang-app",
+        "scheme": "file"
+      },
+      "kind": "repository",
+      "isUsingVirtualFileSystem": false,
+      "headBranchName": "setup/logger,midlleware",
+      "headCommitHash": "531297e18855fce36da8078963d170c2d1e868b1",
+      "headIncomingChanges": 0,
+      "headOutgoingChanges": 0,
+      "upstreamBranchName": "setup/logger,midlleware",
+      "upstreamRemote": "origin",
+      "isRebasing": true,
+      "remotes": [
+        "origin"
+      ],
+      "remoteFetchUrls": [
+        "git@github.com:Zakhar4uk/golang-app.git"
+      ],
+      "worktrees": [
+        {
+          "name": "golang-app",
+          "path": "/Users/mmzakharchuk/golang-app",
+          "ref": "refs/heads/setup/logger,midlleware",
+          "detached": false,
+          "main": true
+        }
+      ],
+      "changes": {
+        "mergeChanges": [],
+        "indexChanges": [],
+        "workingTree": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "untrackedChanges": []
+      },
+      "_onDidChangeSignal": {
+        "_observers": {},
+        "debugName": "Observable Signal From Event"
+      },
+      "headBranchNameObs": {
+        "_observers": {},
+        "_debugNameData": {},
+        "_state": 0,
+        "_updateCount": 0,
+        "_dependencies": {},
+        "_dependenciesToBeRemoved": {},
+        "_isUpdating": false,
+        "_isComputing": false,
+        "_didReportChange": false,
+        "_isInBeforeUpdate": false,
+        "_isReaderValid": false,
+        "_removedObserverToCallEndUpdateOn": null
+      },
+      "headCommitHashObs": {
+        "_observers": {},
+        "_debugNameData": {},
+        "_state": 0,
+        "_updateCount": 0,
+        "_dependencies": {},
+        "_dependenciesToBeRemoved": {},
+        "_isUpdating": false,
+        "_isComputing": false,
+        "_didReportChange": false,
+        "_isInBeforeUpdate": false,
+        "_isReaderValid": false,
+        "_removedObserverToCallEndUpdateOn": null
+      },
+      "upstreamBranchNameObs": {
+        "_observers": {},
+        "_debugNameData": {},
+        "_state": 0,
+        "_updateCount": 0,
+        "_dependencies": {},
+        "_dependenciesToBeRemoved": {},
+        "_isUpdating": false,
+        "_isComputing": false,
+        "_didReportChange": false,
+        "_isInBeforeUpdate": false,
+        "_isReaderValid": false,
+        "_removedObserverToCallEndUpdateOn": null
+      },
+      "upstreamRemoteObs": {
+        "_observers": {},
+        "_debugNameData": {},
+        "_state": 0,
+        "_updateCount": 0,
+        "_dependencies": {},
+        "_dependenciesToBeRemoved": {},
+        "_isUpdating": false,
+        "_isComputing": false,
+        "_didReportChange": false,
+        "_isInBeforeUpdate": false,
+        "_isReaderValid": false,
+        "_removedObserverToCallEndUpdateOn": null
+      },
+      "isRebasingObs": {
+        "_observers": {},
+        "_debugNameData": {},
+        "_state": 0,
+        "_updateCount": 0,
+        "_dependencies": {},
+        "_dependenciesToBeRemoved": {},
+        "_isUpdating": false,
+        "_isComputing": false,
+        "_didReportChange": false,
+        "_isInBeforeUpdate": false,
+        "_isReaderValid": false,
+        "_removedObserverToCallEndUpdateOn": null
+      },
+      "_checkIsIgnored": {
+        "_waitingTimeMs": 1000,
+        "_queue": [],
+        "_timeout": null
+      },
+      "_isIgnored": {
+        "_map": {},
+        "_map2": {}
+      }
+    }
+  ],
+  "notebookDocumentFilePaths": [],
+  "textDocumentFilePaths": [
+    "internal/core/transport/http/response/writer.go",
+    "internal/core/transport/http/middleware/common.go",
+    "internal/core/transport/http/server/server.go",
+    "internal/core/transport/http/server/config.go",
+    "internal/core/transport/http/server/route.go",
+    "internal/core/transport/http/server/router.go",
+    "internal/core/transport/http/request/decode.go",
+    "internal/core/errors/common.go",
+    "internal/core/domain/user.go",
+    "internal/core/domain/uninitialized.go",
+    "internal/features/users/transport/http/create_user.go",
+    "internal/features/users/service/create_user.go",
+    "internal/features/users/service/service.go",
+    "internal/features/users/repository/posgres/repository.go",
+    "internal/core/repository/postgres /conn/conn.go"
+  ]
+}
