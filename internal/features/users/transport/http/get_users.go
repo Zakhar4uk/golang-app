@@ -24,7 +24,7 @@ func (h *UsersHTTPHandler) GetUsers(rw http.ResponseWriter,
 		)
 		return
 	}
-	userDomains, err := h.USerService.GetUsers(ctx, limit, offset)
+	userDomains, err := h.UserService.GetUsers(ctx, limit, offset)
 	if err != nil {
 		responseHandler.ErrorResponse(
 			err,
@@ -33,6 +33,9 @@ func (h *UsersHTTPHandler) GetUsers(rw http.ResponseWriter,
 		return
 	}
 
+	response := GetUsersResponse(usersDTOFromDomains(userDomains))
+
+	responseHandler.JSONResponce(response, http.StatusOK)
 }
 
 func getLimitOffsetQueryParams(r *http.Request) (*int, *int, error) {

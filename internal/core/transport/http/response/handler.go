@@ -57,7 +57,7 @@ func (h *HTTPResponseHandler) ErrorResponse(err error, msg string) {
 	case errors.Is(err, core_errors.ErrConflict):
 		statusCode = http.StatusConflict
 		logFunc = h.log.Warn
-	case errors.Is(err, core_errors.ErrFound):
+	case errors.Is(err, core_errors.ErrNotFound):
 		statusCode = http.StatusNotFound
 		logFunc = h.log.Debug
 	default:

@@ -7,7 +7,7 @@ import (
 	"github.com/Zakhar4uk/golang-app/internal/core/domain"
 )
 
-func (s *USerService) CreateUser(
+func (s *UserService) CreateUser(
 	ctx context.Context,
 	user domain.User,
 ) (domain.User, error) {
