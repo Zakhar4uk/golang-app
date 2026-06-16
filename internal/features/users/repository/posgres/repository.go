@@ -10,4 +10,4 @@ func NewUserRepository(pool core_postgres_pool.Pool) *UserRepository {
 	return &UserRepository{
 		pool: pool,
 	}
-}
+} 
