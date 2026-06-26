@@ -4,15 +4,15 @@ import (
 	"net/http"
 
 	core_logger "github.com/Zakhar4uk/golang-app/internal/core/logger"
+	core_http_request "github.com/Zakhar4uk/golang-app/internal/core/transport/http/request"
 	core_http_response "github.com/Zakhar4uk/golang-app/internal/core/transport/http/response"
-	core_http_utils "github.com/Zakhar4uk/golang-app/internal/core/transport/http/utils"
 )
 
 func (h *UsersHTTPHandler) DeleteUser(rw http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	log := core_logger.FromContext(ctx)
 	responseHandler := core_http_response.NewHTTPResponceHandler(log, rw)
-	userID, err := core_http_utils.GetIntPathValue(r, "id")
+	userID, err := core_http_request.GetIntPathValue(r, "id")
 	if err != nil {
 		responseHandler.ErrorResponse(
 			err,
