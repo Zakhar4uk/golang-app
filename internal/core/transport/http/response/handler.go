@@ -40,7 +40,7 @@ func (h *HTTPResponseHandler) JSONResponce(
 ) {
 	h.rw.WriteHeader(statusCode)
 	if err := json.NewEncoder(h.rw).Encode(responceBody); err != nil {
-		h.log.Error("write HTTP responce", zap.Error(err))
+		h.log.Error("write HTTP response", zap.Error(err))
 	}
 }
 
