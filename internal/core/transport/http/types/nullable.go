@@ -13,7 +13,7 @@ type Nullable[T any] struct {
 func (n *Nullable[T]) UnmarshalJSON(b []byte) error {
 	n.Set = true
 
-	if string(b) == "nill" {
+	if string(b) == "null" {
 		n.Value = nil
 		return nil
 	}

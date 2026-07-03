@@ -6,18 +6,27 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	core_logger "github.com/Zakhar4uk/golang-app/internal/core/logger"
 	core_pgx_pool "github.com/Zakhar4uk/golang-app/internal/core/repository/postgres/pool/pgx"
 	core_http_middleware "github.com/Zakhar4uk/golang-app/internal/core/transport/http/middleware"
 	core_http_server "github.com/Zakhar4uk/golang-app/internal/core/transport/http/server"
+	tasks_posgres_repository "github.com/Zakhar4uk/golang-app/internal/features/tasks/repository/posgres"
+	tasks_service "github.com/Zakhar4uk/golang-app/internal/features/tasks/service"
+	tasks_transport_http "github.com/Zakhar4uk/golang-app/internal/features/tasks/transport/http"
 	users_posgres_repository "github.com/Zakhar4uk/golang-app/internal/features/users/repository/posgres"
 	users_service "github.com/Zakhar4uk/golang-app/internal/features/users/service"
 	user_transport_http "github.com/Zakhar4uk/golang-app/internal/features/users/transport/http"
 	"go.uber.org/zap"
 )
 
+var (
+	timeZone = time.UTC
+)
+
 func main() {
+	time.Local = timeZone
 
 	ctx, cancel := signal.NotifyContext(
 		context.Background(),
@@ -31,6 +40,8 @@ func main() {
 		os.Exit(1)
 	}
 	defer logger.Close()
+
+	logger.Debug("application time zone", zap.Any("zone", timeZone))
 
 	logger.Debug("init postgres connection pool")
 
@@ -48,6 +59,11 @@ func main() {
 	usersService := users_service.NewUserService(userRepository)
 	usersTransportHTTP := user_transport_http.NewUsersHTTPHanlder(usersService)
 
+	logger.Debug("initializing feature", zap.String("feature", "tasks"))
+	tasksRepository := tasks_posgres_repository.NewTasksRepository(pool)
+	tasksService := tasks_service.NewTasksService(tasksRepository)
+	tasksTransportHTTP := tasks_transport_http.NewTasksHTTPHandler(tasksService)
+
 	logger.Debug("init HTTP server")
 	httpServer := core_http_server.NewHTTPServer(
 		core_http_server.NewConfigMust(),
@@ -58,10 +74,11 @@ func main() {
 		core_http_middleware.Panic(),
 	)
 
-	apiVersionRouter := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion1)
-	apiVersionRouter.RegisterRoutes(usersTransportHTTP.Routes()...)
+	apiVersionRouterV1 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion1)
+	apiVersionRouterV1.RegisterRoutes(usersTransportHTTP.Routes()...)
+	apiVersionRouterV1.RegisterRoutes(tasksTransportHTTP.Routes()...)
 
-	httpServer.RegisterAPIRouters(apiVersionRouter)
+	httpServer.RegisterAPIRouters(apiVersionRouterV1)
 
 	if err := httpServer.Run(ctx); err != nil {
 		logger.Error("HTTP server run error", zap.Error(err))

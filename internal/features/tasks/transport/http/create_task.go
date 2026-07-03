@@ -1,8 +1,7 @@
-package tasks_transport
+package tasks_transport_http
 
 import (
 	"net/http"
-	"time"
 
 	"github.com/Zakhar4uk/golang-app/internal/core/domain"
 	core_logger "github.com/Zakhar4uk/golang-app/internal/core/logger"
@@ -16,16 +15,7 @@ type CreateTaskRequest struct {
 	AuthorUserID int     `json:"author_user_id" validate:"required"`
 }
 
-type CreateTaskResponse struct {
-	ID           int        `json:"id"`
-	Version      int        `json:"version"`
-	Title        string     `json:"title"`
-	Description  *string    `json:"description"`
-	Completed    bool       `json:"completed"`
-	CreatedAt    time.Time  `json:"created_at"`
-	CompleteAt   *time.Time `json:"completed_at"`
-	AuthorUserID int        `json:"author_user_id"`
-}
+type CreateTaskResponse TaskDTOResponse
 
 func (h *TasksHTTPHandler) CreateTask(
 	rw http.ResponseWriter,
@@ -58,20 +48,7 @@ func (h *TasksHTTPHandler) CreateTask(
 		)
 		return
 	}
-	response := taskDTOFromDomain(taskDomain)
+	response := CreateTaskResponse(taskDTOFromDomain(taskDomain))
 
 	responseHandler.JSONResponce(response, http.StatusCreated)
-}
-
-func taskDTOFromDomain(task domain.Task) CreateTaskResponse {
-	return CreateTaskResponse{
-		ID:           task.ID,
-		Version:      task.Version,
-		Title:        task.Title,
-		Description:  task.Description,
-		Completed:    task.Completed,
-		CreatedAt:    task.CreatedAt,
-		CompleteAt:   task.CompleteAt,
-		AuthorUserID: task.AuthorID,
-	}
 }

@@ -18,7 +18,7 @@ func (r *UserRepository) DeleteUser(ctx context.Context, id int) error {
 
 	commandTag, err := r.pool.Exec(ctx, query, id)
 	if err != nil {
-		return fmt.Errorf("exec query: %w", &err)
+		return fmt.Errorf("exec query: %w", err)
 	}
 	if commandTag.RowsAffected() == 0 {
 		return fmt.Errorf("user with id='%d': %w", id, core_errors.ErrNotFound)
