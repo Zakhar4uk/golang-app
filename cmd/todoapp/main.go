@@ -12,6 +12,9 @@ import (
 	core_pgx_pool "github.com/Zakhar4uk/golang-app/internal/core/repository/postgres/pool/pgx"
 	core_http_middleware "github.com/Zakhar4uk/golang-app/internal/core/transport/http/middleware"
 	core_http_server "github.com/Zakhar4uk/golang-app/internal/core/transport/http/server"
+	statistics_posgres_repository "github.com/Zakhar4uk/golang-app/internal/features/statistics/repository/posgres"
+	statistics_service "github.com/Zakhar4uk/golang-app/internal/features/statistics/service"
+	statistics_tranposrt_http "github.com/Zakhar4uk/golang-app/internal/features/statistics/transport/http"
 	tasks_posgres_repository "github.com/Zakhar4uk/golang-app/internal/features/tasks/repository/posgres"
 	tasks_service "github.com/Zakhar4uk/golang-app/internal/features/tasks/service"
 	tasks_transport_http "github.com/Zakhar4uk/golang-app/internal/features/tasks/transport/http"
@@ -64,6 +67,11 @@ func main() {
 	tasksService := tasks_service.NewTasksService(tasksRepository)
 	tasksTransportHTTP := tasks_transport_http.NewTasksHTTPHandler(tasksService)
 
+	logger.Debug("initializing feature", zap.String("feature", "statistics"))
+	statisticsRepository := statistics_posgres_repository.NewStatisticsRepository(pool)
+	statisticsService := statistics_service.NewStatisticsService(statisticsRepository)
+	statisticsTransportHTTP := statistics_tranposrt_http.NewStatisticsHTTPHandler(statisticsService)
+
 	logger.Debug("init HTTP server")
 	httpServer := core_http_server.NewHTTPServer(
 		core_http_server.NewConfigMust(),
@@ -77,7 +85,8 @@ func main() {
 	apiVersionRouterV1 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion1)
 	apiVersionRouterV1.RegisterRoutes(usersTransportHTTP.Routes()...)
 	apiVersionRouterV1.RegisterRoutes(tasksTransportHTTP.Routes()...)
-
+	apiVersionRouterV1.RegisterRoutes(statisticsTransportHTTP.Routes()...)
+ 
 	httpServer.RegisterAPIRouters(apiVersionRouterV1)
 
 	if err := httpServer.Run(ctx); err != nil {
