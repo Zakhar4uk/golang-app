@@ -8,6 +8,7 @@ import (
 	"syscall"
 	"time"
 
+	_ "github.com/Zakhar4uk/golang-app/docs"
 	core_logger "github.com/Zakhar4uk/golang-app/internal/core/logger"
 	core_pgx_pool "github.com/Zakhar4uk/golang-app/internal/core/repository/postgres/pool/pgx"
 	core_http_middleware "github.com/Zakhar4uk/golang-app/internal/core/transport/http/middleware"
@@ -28,6 +29,11 @@ var (
 	timeZone = time.UTC
 )
 
+// @title        Golang Todo API
+// @version      1.0
+// @description  Todo Applicaton REST-API scheme
+// @host         127.0.0.1:5050
+// @BasePath     /api/v1
 func main() {
 	time.Local = timeZone
 
@@ -76,6 +82,7 @@ func main() {
 	httpServer := core_http_server.NewHTTPServer(
 		core_http_server.NewConfigMust(),
 		logger,
+		core_http_middleware.CORS(),
 		core_http_middleware.RequestID(),
 		core_http_middleware.Logger(logger),
 		core_http_middleware.Trace(),
@@ -86,8 +93,10 @@ func main() {
 	apiVersionRouterV1.RegisterRoutes(usersTransportHTTP.Routes()...)
 	apiVersionRouterV1.RegisterRoutes(tasksTransportHTTP.Routes()...)
 	apiVersionRouterV1.RegisterRoutes(statisticsTransportHTTP.Routes()...)
- 
+
 	httpServer.RegisterAPIRouters(apiVersionRouterV1)
+
+	httpServer.RegisterSwagger()
 
 	if err := httpServer.Run(ctx); err != nil {
 		logger.Error("HTTP server run error", zap.Error(err))
